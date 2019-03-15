@@ -1,0 +1,17 @@
+<div class="container" style="margin: auto;width: 60%;padding: 10px;">
+  <div>
+    <app-child #child (requestMoney)="requestForMoneyReceived($event)" [pocketMoney]="amountToSend"></app-child>
+  </div>
+  <hr>
+  <div>
+    <h2>Hello! I am Parent</h2><br>
+    <div *ngIf="isMoneyRequested">
+      <label>Enter amount to send:
+        <input type="text" [(ngModel)]="amount">
+      </label>
+      <button (click)="sendMoney()">Send Pocket Money</button>
+      <!--<button (click)="child.pocketMoney = 20">Deduct Pocket Money</button>-->
+      <button (click)="deductPocketMoney()">Deduct Pocket Money</button>
+    </div>
+  </div>
+</div>

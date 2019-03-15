@@ -1,0 +1,33 @@
+<div class="container">
+  <div [hidden]="submmited">
+    <h1>Template Driven Form</h1>
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="model.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="text" class="form-control" id="password" [(ngModel)]="model.password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!profileForm.form.valid">Submit</button>
+    </form>
+    <p>Status :{{profileForm.form.status}} </p>
+  </div>
+
+  <div [hidden]="!submmited">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name: </div>
+      <div class="col-xs-9">{{model.name}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Password: </div>
+      <div class="col-xs-9">{{model.password}}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submmited=false">Edit</button>
+  </div>
+</div>

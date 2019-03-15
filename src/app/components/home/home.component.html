@@ -1,0 +1,52 @@
+<div class="container">
+  <br>
+      <!--Showing component properties with interpolation-->
+      <h4>
+        {{title}}
+      </h4>
+
+      <h3>{{date | date}}</h3>
+      <h3>{{date | date:'shortDate'}}</h3>
+      <h3>{{date | date:'fullDate'}}</h3>
+      <h3>{{date | date:'dd/MM/yy'}}</h3>
+
+      <!--Showing an array property with *ngFor-->
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{student.id | filterdata : 3}}</td>
+            <td>{{student.name | uppercase}}</td>
+            <td>{{student.password}} sadsa</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--Template reference variable-->
+      <div >
+        <label>A:
+          <input type="text" #customeInput (keyup)="0" [placeholder]="defaultText" style="width: 300px">
+        </label>
+      </div>
+      <p>{{customeInput.value}}</p>
+
+      <div>
+          <label>B:
+            <input type="text" [placeholder]="textForTwoBinding" [(ngModel)]="inputText" style="width: 300px">
+          </label>
+        </div>
+
+      <!--Event handling-->
+      <!--propery binding-->
+      <button [disabled]="isDisabled" (click)="setValueA(customeInput)" >Update A</button>
+      <button [disabled]="isDisabled" (click)="setValueB()" >Update B</button>
+
+  <hr>
+
+  <div class="btn-group btn-group-justified">
+    <a href="" routerLink="/components" class="btn btn-primary">Component interaction</a>
+    <a href="" routerLink="/reactive-forms" class="btn btn-primary">Reactive Form</a>
+    <a href="" routerLink="/template-driven-form" class="btn btn-primary">Template Driven Form</a>
+    <a href="" routerLink="/observables" class="btn btn-primary">Observables</a>
+    <a href="" routerLink="/users" class="btn btn-primary">Users</a>
+  </div>
+</div>
